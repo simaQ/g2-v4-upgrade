@@ -17,11 +17,11 @@ dv.transform({
 
 const chart = new Chart({
   container: 'container',
-  forceFit: true,
+  autoFit: true,
   height: 500
 });
-chart.source(dv);
-chart.intervalStack()
+chart.data(dv.rows);
+chart.interval().adjust('stack')
   .position('月份*月均降雨量')
   .color('name');
 chart.render();
