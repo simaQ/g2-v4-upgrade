@@ -13,20 +13,19 @@ const data = [
 ];
 const chart = new Chart({
   container: 'container',
-  forceFit: true,
+  autoFit: true,
   height: 500
 });
-chart.source(data);
+chart.data(data);
 chart.scale('value', {
-  min: 0
+  min: 0,
+  nice: true, // 4.0 中 scale 中 `nice` 属性默认为 false.
 });
 chart.scale('year', {
   range: [0, 1]
 });
 chart.tooltip({
-  crosshairs: {
-    type: 'line'
-  }
+  showCrosshairs: true,
 });
 chart.line().position('year*value');
 chart.point().position('year*value')
